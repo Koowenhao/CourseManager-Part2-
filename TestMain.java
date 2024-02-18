@@ -93,9 +93,9 @@ public class TestMain {
                                             
                                             
                                             if (trimester == 1)
-                                                trim1.addData(newCourse.getCode());
+                                                trim1.addData(newCourse);
                                             else if (trimester == 2) 
-                                                trim2.addData(newCourse.getCode());
+                                                trim2.addData(newCourse);
                                             System.out.println(course + " has been successfully added");
                                             System.out.println("Do you still want to add? (Y/N)");
                                             confirmation = sc.nextLine();
@@ -136,14 +136,23 @@ public class TestMain {
                                             TrimesterRun selectCourse;
                                             System.out.println("Please Enter Course ID ");
                                             course = sc.nextLine();
-                                            
                                             System.out.println("Please Enter Lecturer ID");
                                             lecturer = sc.nextLine();
+                                            Courses SCourse;
+                                            Lecturer SLecturer;
                                             if (trimester == 1) {
-                                                if (trim1.getCourseList().contains(course)) {
-                                                    selectCourse = new 
+                                                SCourse = trim1.searchCourses(course, trim1.TriCourseList);
+                                                SLecturer = trim1.searchLecturer(lecturer, trim1.TriLecList);
+                                                if (trim1.getCourseList().contains(SCourse)) {
+                                                    SLecturer.addCourse(SCourse.getCode());
                                                 }
-                                            }
+                                                else if(trimester == 2) {
+                                                    SCourse = trim2.searchCourses(course, trim2.TriCourseList);
+                                                    SLecturer = trim2.searchLecturer(lecturer, trim2.TriLecList);
+                                                    if (trim2.getCourseList().contains(SCourse)) {
+                                                        SLecturer.addCourse(SCourse.getCode());
+                                                    }
+                                            } }
                                             System.out.println(course + " has successfully been assigned to " + lecturer);
                                             System.out.println("Do you still want to assign (yes/no)");
                                             confirmation = sc.nextLine();
