@@ -50,6 +50,14 @@ public class TrimesterData  {
             }
         }
     }
+    public Boolean returnTFLecture(String LID, ArrayList<Lecturer> searchArray) {
+        for(int i = 0; i < TriLecList.size(); i++) {
+            if (searchArray.get(i).getLID().equals(LID)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public void printSemester() {
         System.out.println();
         for(int i = 0; i < TriCourseList.size(); i++)
