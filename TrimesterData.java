@@ -33,8 +33,9 @@ public class TrimesterData  {
         for(int i = 0; i < TriCourseList.size(); i++) {
             if (searchArray.get(i).getCode().equals(CID)) {
                 return searchArray.get(i);
-            }
+            } 
         }
+        return null;
     }
     public Lecturer searchLecturer(String LID, ArrayList<Lecturer> searchArray) {
         for(int i = 0; i < TriLecList.size(); i++) {
@@ -42,13 +43,15 @@ public class TrimesterData  {
                 return searchArray.get(i);
             }
         }
+        return null;
     }
-    public Student searchStudent(String SID, ArrayList<Student> searchArray) {
+    public Student searchStudent(Integer SID, ArrayList<Student> searchArray) {
         for(int i = 0; i < TriStuList.size(); i++) {
             if (searchArray.get(i).getSId().equals(SID)) {
                 return searchArray.get(i);
             }
         }
+        return null;
     }
     public void printSemester() {
         System.out.println();
